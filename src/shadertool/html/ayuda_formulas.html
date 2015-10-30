@@ -1,0 +1,16 @@
+<html>
+	<h2>Nodos fórmula</h2>
+	Los nodos fórmula son pixel shaders, es decir, las operacione se aplican a nivel de pixel.
+	Se pueden realizar una gran cantidad de operaciones matemáticas. La documentación de GLSL
+	se puede encontrar en: http://www.opengl.org/sdk/docs/manglsl/.
+	<h3>Variables propias</h3>
+	En Shadertool se pueden utilizar algunas variables que no pertenecen a GLSL para simplificar
+	el uso de muchas operaciones.
+	<ul>
+		<li><b>color:</b> Color final del pixel, de tipo vec4.</li>
+		<li><b>pos:</b> Posición del pixel en la imagen, de tipo vec2.</li>
+		<li><b>size:</b> Tamaño de la imagen, de tipo vec2.</li>
+		<li><b>time:</b> Variable que se incrementa con el tiempo, de tipo float.</li>
+		<li><b>colN:</b> Color del pixel de la imagen de entrada N, de tipo vec4. Ejemplo: col1, col2... Únicamente válido si hay imágenes de entrada</li>
+	</ul>
+</html>
