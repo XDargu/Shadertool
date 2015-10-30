@@ -1,0 +1,145 @@
+<html>
+	<img src="img/HelpBar.png">
+	<h1>Manual</h1>
+	<h2>1  Interfaz gráfica</h2>
+	ShaderTools está distribuído en cuatro zonas: el editor, el árbol de nodos, la menú/barra de herramientas y el Inspector.
+	<br/><br/><center><img src="img/ImgEditor.png"></center></br>
+	<h3>1.1  Editor</h3>
+	En el editor se realiza la mayor parte del proceso de tratamiento de la imagen. Las diferentes imágenes y operaciones (en forma de nodos)
+	son representadas en el editor, así como las conexiones entre las mismas.
+	<br/><br/><center><img src="img/ImgEditorE.png"></center><br/>
+	<h3>1.2  Árbol de nodos</h3>
+	En el árbol de nodos se almacenan todas las operaciones. Éstas se dividen en operaciones de:
+	<ul>
+		<li><b>Entrada:</b> entradas de datos (por ejemplo, imágenes).</li>
+		<li><b>Operaciones:</b> operaciones morfológicas (por ejemplo, máscaras, transformadas, etc.).</li>
+		<li><b>Conversiones:</b> conversiones de imagen (por ejemplo, RGB -> HSV).</li>
+		<li><b>Salidas:</b> salidas de datos (por ejemplo, el inspector, que permite visualizar imágenes).</li>
+	</ul>
+	<center><img src="img/ImgEditorA.png"></center><br/>
+	<h3>1.3  Menú y barra de herramientas</h3>
+	En el menú y la barra de herramientas se realizan todas las operaciones habituales de edición: abrir, nuevo, guardar...
+	<br/><br/><center><img src="img/ImgEditorB.png"></center><br/>
+	<h4>1.3.1  Crear un nuevo archivo</h4>
+	Para crear un nuevo archivo hay que abrir el menú "Archivo" y pulsar el botón de "Nuevo" (<img src="img/icons/IconoNuevo.png">) o pulsar el botón
+	"Nuevo" (<img src="img/icons/IconoNuevoGrande.png">) en la barra de herramientas.
+	<h4>1.3.2  Abrir un archivo</h4>
+	Para abrir un archivo hay que abrir el menú "Archivo" y pulsar el botón de "Abrir" (<img src="img/icons/IconoAbrir.png">) o pulsar el botón
+	"Abrir" (<img src="img/icons/IconoAbrirGrande.png">) en la barra de herramientas.
+	<h4>1.3.3  Guardar un archivo</h4>
+	Para guardar un archivo hay que abrir el menú "Archivo" y pulsar el botón de "Guardar" (<img src="img/icons/IconoGuardar1.png">) o pulsar el botón
+	"Guardar" (<img src="img/icons/IconoGuardarGrande.png">) en la barra de herramientas.
+	<br/>
+	Para guardar un archivo con un nombre diferente hay que abrir el menú "Archivo" y pulsar el botón de "Guardar como" (<img src="img/icons/IconoGuardar.png">)
+	o pulsar el botón "Guardar como" (<img src="img/icons/IconoGuardarComoGrande.png">) en la barra de herramientas.
+	<h4>1.3.4  Otras operaciones</h4>
+	Otras de las operaciones que se pueden realizar son reorganizar el grafo de forma automática (en el menú "Editar") o abrir este manual.
+	<h3>1.4  Inspector</h3>
+	El Inspector es una ventana diferente en la que se muestran los resultados de las transformaciones realizadas a las imágenes, visibles al pulsar en un enlace o en un nodo Inspector.
+	<br/><br/><center><img src="img/Inspector.png"></center><br/>
+	<h2>2  Nodos</h2>
+	Los nodos representan las diferentes operaciones que se pueden realizar: carga de imágenes,
+	procesamiento de las mismas, conversiones...
+	<br/><br/><center><img src="img/ImgNode1.png"></center>
+	<h3>2.1  Funcionamiento básico</h3>
+	Los nodos representan las diferentes operaciones que se pueden realizar: carga de imágenes,
+	procesamiento de las mismas, conversiones... Cada nodo tiene una serie de propiedades que
+	se pueden modificar desde el editor, y dependerán de las características del mismo. Por
+	ejemplo, a un nodo que aplique una máscara de convolución se le podrán modificar la máscara
+	o la política de actuación en los bordes de la imagen.
+	<br/><br/>
+	Cada nodo cuenta con una cierta cantidad de entradas y salidas de datos, que son las encargadas de
+	alimentar con la información necesaria (generalmente una imágen) al nodo, para su posterior transformación.
+	Un nodo puede enviar sus datos de salida a cualquier cantidad de nodos, pero cada entrada solo puede ser
+	utilizada una vez, ya que de lo contrario se produciría confusión.
+	<br/><br/>
+	Es posible exportar nodos con unas determinadas características, permitiendo reutilizarlos.
+	<h3>2.2  Tipos de nodos</h3>
+	<h4>2.2.1  Entradas</h4>
+	<ul>
+		<li><b>Imagen RGBA:</b> Permite cargar una imagen a la que aplicar transformaciones con canales RGB y alpha.</li>
+		<li><b>Imagen RGB:</b> Permite cargar una imagen a la que aplicar transformaciones con canales RGB.</li>
+		<li><b>Fórmula (entrada):</b> Crea una imagen basándose en una fórmula por pixel.</li>
+		<li><b>Random:</b> Crea una imagen con valores aleatorios en blanco y negro.</li>
+		<li><b>Random (color):</b> Crea una imagen con valores aleatorios en color.</li>
+		<li><b>Perlin:</b> Crea una imagen con ruido perlin.</li>
+		<li><b>Perlin (tiempo):</b> Crea una imagen con ruido perlin que varia con el tiempo.</li>
+	</ul>
+	<h4>2.2.2  Operaciones</h4>
+	<ul>
+		<li><b>Operación binaria:</b> Operación matemática binaria (suma, producto, máximo...).</li>
+		<li><b>Máscara:</b> Máscara de convolución de NxN.</li>
+		<li><b>Máscara matemática:</b> Máscara de valores matemáticos(media, mediana, máximo...).</li>
+		<li><b>Fórmula:</b> Transforma una imagen mediante una fórmula por pixel.</li>
+		<li><b>Inversa:</b> Inversa de la imagen.</li>
+		<li><b>Umbralización:</b> Umbraliza los tres canales de una imagen.</li>
+		<li><b>Posterización:</b> Posteriza una imagen mediante N umbrales.</li>
+		<li><b>Escala:</b> Modifica el tamaño de una imagen.</li>
+		<li><b>Zoom:</b> Amplia una imagen.</li>
+		<li><b>Rotación:</b> Rota una imagen (en grados).</li>
+		<li><b>Traslación:</b> Traslada una imagen en horizontal y vertical.</li>
+		<li><b>Ruido salt & pepper:</b> Aplica ruido sal y pimienta a una imagen.</li>
+	</ul>	
+	<h4>2.2.3  Conversiones</h4>
+	<ul>
+		<li><b>RGB->GRAY:</b> Convierte una imagen RGB a blanco y negro.</li>
+		<li><b>RGB->HSV:</b> Convierte una imagen RGB a HSV.</li>
+		<li><b>HSV->RGB:</b> Convierte una imagen HSV a RGB.</li>
+	</ul>
+	<h4>2.2.4  Salidas</h4>
+	<ul>
+		<li><b>Inspector:</b> Permite visualizar el estado de una imagen en cualquier punto del grafo y guardarla.</li>
+	</ul>	
+	<h3>2.3  Añadir y eliminar nodos</h3>
+	<h4>2.3.1  Añadir un nodo</h4>
+	Para añadir un nodo hay que arrastrarlo desde el árbol de nodos hasta el editor.
+	<br/>
+	Para añadir	un nodo exportado anteriormente hay que pulsar en el botón "Importar" (<img src="img/ImgBtnImport.png">).
+	Se abrirá una nueva ventana donde se podrá elegir el nodo a importar. Los nodos exportados tienen extensión ".node".
+	<br/><br/><center><img src="img/ImgImportNode.png"></center><br/>
+	Una vez seleccionado el nodo a importar, éste se añadirá al árbol de nodos, en una nueva carpeta llamada "Importados".
+	<br/>
+	<br/>
+	También es posible añadir nodos importados arrastrándolos desde su ubicación hasta el editor o el árbol de nodos. Si
+	se arrastra al árbol de nodos se añadirá a la carpeta "Importados", si se arrastra al editor se añadirá al mismo, pero
+	no al árbol de nodos.
+	<h4>2.3.2  Eliminar un nodo</h4>
+	Se puede eliminar un nodo de dos formas: seleccionándolo (haciendo click izquierdo sobre él) y pulsando el botón "Suprimir" o
+	abriendo su menú el opciones (haciendo click derecho sobre él) y seleccionando la opción "Eliminar".
+	<h3>2.4  Modificar propiedades de los nodos</h3>
+	Muchos nodos tienen propiedades que afectan a su funcionamiento (por ejemplo, la máscara de un nodo de máscara). Estas
+	propiedades se modifican haciendo click derecho sobre el nodo que queremos modificar. Se abrirá un menú donde aparecerán
+	varias posibles acciones.
+	<br/><br/><center><img src="img/ImgPropNode1.png"></center><br/>
+	La primera propiedad que se puede modificar es el nombre del nodo (propiedad que comparten todos los nodos). Pulsando
+	en esa opción se abrirá una ventana donde se nos pedirá el nuevo nombre del nodo.
+	<br/><br/><center><img src="img/ImgPropNode2.png"></center><br/>
+	El resto de propiedades dependen ya del tipo de nodo. En el caso del nodo máscara se puede modificar la máscara y la
+	política de actuación con los bordes.
+	<br/><br/><center><img src="img/ImgPropNode3.png"></center><br/>
+	<h2>3  Enlaces</h2>
+	Los enlaces relacionan los nodos entre ellos, conectando los datos de entrada y salida para permitir el funcionamiento del
+	programa.
+	<br/>
+	Los enlaces se dibujarán con una línea discontinua si la entrada o la salida están sin asignar.
+	<br/><br/><center><img src="img/ImgLink2.png"></center><br/>
+	Cuando un enlace tenga tanto su entrada como su salida ya asignadas se dibujará con una línea continua y más ancha. También
+	aparecerán escritas la entrada y la salida asignadas.
+	<br/><br/><center><img src="img/ImgLink1.png"></center><br/>	
+	<h3>3.1  Añadir un enlace</h3>
+	Para añadir un enlace hay que seleccionar el nodo de origen (haciendo click sobre él) y hacer click en el nodo de destino
+	mientras se mantiene pulsada la tecla Control. En caso de que la opción de auto-asignar entradas y salidas esté activa, se
+	asignarán automáticamente siempre y cuando sean únicas (no existan más entradas o salidas) y la entrada no esté ya asignada.
+	<h3>3.2  Eliminar un enlace</h3>
+	Se puede eliminar un enlace de dos formas: seleccionándolo (haciendo click izquierdo sobre él) y pulsando la tecla Suprimir o
+	abriendo el menú de opciones del enlace (haciendo click derecho sobre él) y seleccionando la opción Eliminar.
+	<br/><br/><center><img src="img/ImgLink3.png"></center><br/>	
+	<h3>3.3  Asignar entradas y salidas</h3>
+	Las entradas y salidas se asignan desde el menú de opciones del enlace (click derecho sobre el enlace). Una vez allí
+	aparecerán dos opciones: Elegir Entrada y Elegir Salida, donde aparecerán todas las entradas y salidas disponibles. En
+	caso de que una entrada o salida ya esté seleccionada aparecerá escrito en dicha salida, y las entradas al nodo destino
+	que estén en uso (bien por el propio enlace, bien por otros) también aparecerán con un mensaje indicándolo.
+	<br/><br/><center><img src="img/ImgLink4.png"></center><br/>	
+	Si la opción de auto-asignar entradas y salidas está activa, se	asignarán automáticamente las entradas y salidas, siempre
+	y cuando sean únicas (no existan más entradas o salidas) y la entrada al nodo destino no esté ya en uso (asignada).
+</html>
